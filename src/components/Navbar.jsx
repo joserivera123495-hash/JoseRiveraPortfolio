@@ -1,35 +1,37 @@
 import { useState } from "react";
 
+// Set to true once you add certifications in Certifications.jsx
+const SHOW_CERTS = false;
+
+const navItems = SHOW_CERTS
+  ? ["about", "projects", "skills", "certifications", "resume", "contact"]
+  : ["about", "projects", "skills", "resume", "contact"];
+
 function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className={`navbar${open ? " open" : ""}`}>
-      <h2 className="logo">
-        <span className="dot" />
-        jose<span className="ext">.dev</span>
-      </h2>
-
-      <div className="nav-links">
-        <a href="#home" onClick={() => setOpen(false)}>Home</a>
-        <a href="#about" onClick={() => setOpen(false)}>About</a>
-        <a href="#skills" onClick={() => setOpen(false)}>Skills</a>
-        <a href="#projects" onClick={() => setOpen(false)}>Projects</a>
-        <a href="#contact" onClick={() => setOpen(false)}>Contact</a>
-      </div>
-
-      <a className="resume-btn" href="#resume" onClick={() => setOpen(false)}>
-        Resume
+    <nav className="navbar">
+      <a className="nav-name" href="#home" onClick={() => setOpen(false)}>
+        Jose Rivera
       </a>
+
+      <div className={`nav-links ${open ? "open" : ""}`}>
+        {navItems.map((item) => (
+          <a key={item} href={`#${item}`} onClick={() => setOpen(false)}>
+            {item.charAt(0).toUpperCase() + item.slice(1)}
+          </a>
+        ))}
+      </div>
 
       <button
         className="nav-toggle"
-        aria-label="Toggle navigation menu"
         onClick={() => setOpen((v) => !v)}
+        aria-label="Toggle menu"
       >
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2 4.5H16M2 9H16M2 13.5H16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-        </svg>
+        <span />
+        <span />
+        <span />
       </button>
     </nav>
   );

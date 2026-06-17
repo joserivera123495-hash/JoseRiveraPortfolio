@@ -1,11 +1,13 @@
 function Footer() {
   return (
-    <footer className="site-footer">
-      <span>© {new Date().getFullYear()} Jose Rivera — built with React</span>
-      <div className="footer-links">
-        <a href="#home">Home</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+    <footer className="footer">
+      <div className="wrap">
+        <p>© {new Date().getFullYear()} Jose Rivera</p>
+        <div className="footer-links">
+          <a href="#home">Home</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
       </div>
     </footer>
   );

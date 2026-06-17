@@ -1,66 +1,73 @@
 const projects = [
   {
-    tag: "01",
-    title: "Habit Tracker iOS App",
-    desc: "A SwiftUI app for building daily habits, with streak tracking, reminders, and progress charts synced through Core Data.",
-    stack: ["SwiftUI", "Core Data", "Swift"],
-    demo: "#",
-    code: "#",
+    title: "Trinity Hero Adventure",
+    type: "Senior Capstone Game",
+    description:
+      "A complete 2D action RPG built in Unity with three playable heroes, independent save data, multi-scene progression, training systems, and boss gameplay.",
+    stack: ["Unity", "C#", "Serialization"],
+    links: [
+      { label: "Download Game", href: "/trinity-hero-final.app.zip" },
+    ],
   },
   {
-    tag: "02",
-    title: "Portfolio & Blog Platform",
-    desc: "A fast, responsive personal site built with React and Vite, featuring a markdown-powered blog and dark mode support.",
+    title: "Skin Lesion Segmentation",
+    type: "Medical AI Project",
+    description:
+      "A computer vision project using a U-Net model for binary semantic segmentation of dermoscopic images with custom augmentation and training analysis.",
+    stack: ["Python", "PyTorch", "Computer Vision"],
+    links: [{ label: "Ask about it", href: "#contact" }],
+  },
+  {
+    title: "Personal Portfolio",
+    type: "React Website",
+    description:
+      "This site, built with React and Vite to present projects, skills, resume, and contact links in a clean, recruiter-friendly format.",
     stack: ["React", "Vite", "CSS"],
-    demo: "#",
-    code: "#",
+    links: [
+      { label: "GitHub", href: "https://github.com/joserivera123495-hash" },
+    ],
   },
   {
-    tag: "03",
-    title: "Task Manager API",
-    desc: "A RESTful task management backend with authentication, project boards, and real-time updates via WebSockets.",
-    stack: ["Node.js", "Express", "PostgreSQL"],
-    demo: "#",
-    code: "#",
-  },
-  {
-    tag: "04",
-    title: "Weather Watch",
-    desc: "An iOS weather app with location-based forecasts, hourly breakdowns, and severe weather alerts using a public API.",
-    stack: ["SwiftUI", "MapKit", "REST API"],
-    demo: "#",
-    code: "#",
+    title: "Fiesta App",
+    type: "Startup Project",
+    description:
+      "A marketplace concept connecting customers with event vendors for catering, decorations, DJs, photography, and more across the Rio Grande Valley.",
+    stack: ["SwiftUI", "iOS", "Marketplace"],
+    links: [{ label: "Discuss project", href: "#contact" }],
   },
 ];
 
 function Projects() {
   return (
-    <section id="projects">
-      <div className="section-head">
-        <div className="eyebrow">02 / projects</div>
-        <h2>Things I've built</h2>
-      </div>
+    <section id="projects" className="wrap">
+      <p className="section-label">Projects</p>
+      <h2 className="section-title">Selected work.</h2>
 
       <div className="projects-grid">
         {projects.map((p) => (
-          <div className="project-card" key={p.tag}>
-            <div className="project-top">
-              <div className="project-icon">{p.tag}</div>
-              <div className="project-links">
-                <a href={p.demo}>Demo</a>
-                <a href={p.code}>Code</a>
-              </div>
-            </div>
-
+          <article className="card" key={p.title}>
+            <div className="card-type">{p.type}</div>
             <h3>{p.title}</h3>
-            <p className="project-desc">{p.desc}</p>
-
-            <div className="tag-row">
+            <p>{p.description}</p>
+            <div className="tags">
               {p.stack.map((s) => (
-                <span className="tag" key={s}>{s}</span>
+                <span key={s}>{s}</span>
               ))}
             </div>
-          </div>
+            <div className="card-links">
+              {p.links.map((l) => (
+                <a
+                  key={l.label}
+                  href={l.href}
+                  target={l.href.startsWith("http") ? "_blank" : undefined}
+                  rel="noreferrer"
+                  download={l.href.includes(".zip") || undefined}
+                >
+                  {l.label} &rsaquo;
+                </a>
+              ))}
+            </div>
+          </article>
         ))}
       </div>
     </section>

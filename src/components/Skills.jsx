@@ -1,40 +1,38 @@
-const groups = [
+const skillGroups = [
   {
-    name: "languages",
-    items: ["Swift", "JavaScript", "Python", "C++", "SQL"],
+    title: "Languages",
+    skills: ["C++", "C#", "Python", "Java", "JavaScript", "Swift", "SQL"],
   },
   {
-    name: "frameworks",
-    items: ["SwiftUI", "React", "Node.js", "Express"],
+    title: "Frameworks & Tools",
+    skills: ["React", "Vite", "Unity", "PyTorch", "Git", "Linux", "Xcode"],
   },
   {
-    name: "tools",
-    items: ["Git", "Xcode", "VS Code", "Vite", "Figma"],
-  },
-  {
-    name: "concepts",
-    items: ["REST APIs", "Data Structures", "Testing", "CI/CD"],
+    title: "Concepts",
+    skills: [
+      "Data Structures",
+      "Algorithms",
+      "OOP",
+      "Computer Vision",
+      "Deep Learning",
+      "REST APIs",
+    ],
   },
 ];
 
 function Skills() {
   return (
-    <section id="skills">
-      <div className="section-head">
-        <div className="eyebrow">03 / skills</div>
-        <h2>What I work with</h2>
-      </div>
+    <section id="skills" className="wrap">
+      <p className="section-label">Skills</p>
+      <h2 className="section-title">Tools I use to solve problems.</h2>
 
-      <div className="skills-tree">
-        {groups.map((g) => (
-          <div className="skill-folder" key={g.name}>
-            <div className="folder-head">
-              <span className="folder-icon">▸</span>
-              {g.name}/
-            </div>
-            <ul className="folder-items">
-              {g.items.map((item) => (
-                <li key={item}>{item}</li>
+      <div className="skills-grid">
+        {skillGroups.map((group) => (
+          <div className="skill-col" key={group.title}>
+            <h3>{group.title}</h3>
+            <ul>
+              {group.skills.map((s) => (
+                <li key={s}>{s}</li>
               ))}
             </ul>
           </div>
