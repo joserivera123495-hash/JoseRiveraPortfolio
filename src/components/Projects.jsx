@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const projects = [
   {
     title: "Trinity Hero Adventure",
@@ -5,9 +7,8 @@ const projects = [
     description:
       "A complete 2D action RPG built in Unity with three playable heroes, independent save data, multi-scene progression, training systems, and boss gameplay.",
     stack: ["Unity", "C#", "Serialization"],
-    links: [
-      { label: "Download Game", href: "/trinity-hero-final.app.zip" },
-    ],
+    caseStudy: "/projects/trinity-hero-adventure",
+    links: [{ label: "Download Game", href: "/trinity-hero-final.app.zip" }],
   },
   {
     title: "Skin Lesion Segmentation",
@@ -15,6 +16,7 @@ const projects = [
     description:
       "A computer vision project using a U-Net model for binary semantic segmentation of dermoscopic images with custom augmentation and training analysis.",
     stack: ["Python", "PyTorch", "Computer Vision"],
+    caseStudy: "/projects/skin-lesion-segmentation",
     links: [{ label: "Ask about it", href: "#contact" }],
   },
   {
@@ -23,6 +25,7 @@ const projects = [
     description:
       "This site, built with React and Vite to present projects, skills, resume, and contact links in a clean, recruiter-friendly format.",
     stack: ["React", "Vite", "CSS"],
+    caseStudy: "/projects/personal-portfolio",
     links: [
       { label: "GitHub", href: "https://github.com/joserivera123495-hash" },
     ],
@@ -33,6 +36,7 @@ const projects = [
     description:
       "A marketplace concept connecting customers with event vendors for catering, decorations, DJs, photography, and more across the Rio Grande Valley.",
     stack: ["SwiftUI", "iOS", "Marketplace"],
+    caseStudy: "/projects/fiesta-app",
     links: [{ label: "Discuss project", href: "#contact" }],
   },
 ];
@@ -47,20 +51,26 @@ function Projects() {
         {projects.map((p) => (
           <article className="card" key={p.title}>
             <div className="card-type">{p.type}</div>
+
             <h3>{p.title}</h3>
+
             <p>{p.description}</p>
+
             <div className="tags">
               {p.stack.map((s) => (
                 <span key={s}>{s}</span>
               ))}
             </div>
+
             <div className="card-links">
+              <Link to={p.caseStudy}>View Case Study &rsaquo;</Link>
+
               {p.links.map((l) => (
                 <a
                   key={l.label}
                   href={l.href}
                   target={l.href.startsWith("http") ? "_blank" : undefined}
-                  rel="noreferrer"
+                  rel={l.href.startsWith("http") ? "noreferrer" : undefined}
                   download={l.href.includes(".zip") || undefined}
                 >
                   {l.label} &rsaquo;

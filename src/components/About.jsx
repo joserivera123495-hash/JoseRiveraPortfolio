@@ -1,4 +1,6 @@
 import Reveal from "./Reveal";
+import { Link } from "react-router-dom";
+
 
 function About() {
   return (
@@ -13,6 +15,13 @@ function About() {
             discipline, troubleshooting, and attention to detail under pressure.
           </span>
         </p>
+        
+        <div style={{ marginTop: "32px" }}>
+          <Link to="/about-more" className="btn btn-primary">
+            Learn More About Me
+          </Link>
+        </div>
+
       </Reveal>
 
       <Reveal delay={120}>
