@@ -3,7 +3,7 @@ function Hero() {
     <section id="home" className="hero wrap">
       <h1>Building software that feels clean, fast, and useful.</h1>
       <p className="lead">
-        I'm Jose Rivera, a Computer Science graduate focused on web, iOS, AI,
+        I'm Jose Rivera, a Computer Science graduate focused on Web, iOS, AI,
         and Unity. I build with React, Swift, Python, C++, and more.
       </p>
       <div className="hero-actions">

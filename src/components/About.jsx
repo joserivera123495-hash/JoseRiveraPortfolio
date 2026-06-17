@@ -9,7 +9,7 @@ function About() {
           A Computer Science graduate from UTRGV with real technical range.{" "}
           <span>
             Before focusing on software, I worked in industrial electrical
-            environments including SpaceX Starbase — which sharpened my
+            environments including SpaceX Starbase which sharpened my
             discipline, troubleshooting, and attention to detail under pressure.
           </span>
         </p>
